@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-cinzel{
+    font-family: 'Cinzel', serif;
+}
+.font-garamond{
+    font-family: 'EB Garamond', serif;
+}
+.footerBg{
+    background-image: url('../public/bg-5.png');
+    background-size: cover;
+}
+.benifitsBg{
+    background-image: url('../public/wave.png');
+    background-size: cover;
+}
+.loginBg{
+    background-image: url('../public/bg-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hoverEffect{
+   @apply rounded-lg border-0 hover:border-s-4 hover:border-yellow-600 font-bold text-cyan-400
+}
