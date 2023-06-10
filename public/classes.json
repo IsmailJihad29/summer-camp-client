@@ -1,0 +1,83 @@
+[
+    {
+      "_id": "1",
+      "class_name": "Hatha Yoga",
+      "instructor_name": "Emily Smith",
+      "available_seat": 12,
+      "price": 20,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "2",
+      "class_name": "Vinyasa Flow",
+      "instructor_name": "Michael Johnson",
+      "available_seat": 8,
+      "price": 25,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "3",
+      "class_name": "Yin Yoga",
+      "instructor_name": "Sarah Thompson",
+      "available_seat": 10,
+      "price": 18,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "4",
+      "class_name": "Kundalini Yoga",
+      "instructor_name": "David Thompson",
+      "available_seat": 15,
+      "price": 22,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "5",
+      "class_name": "Power Yoga",
+      "instructor_name": "Jessica Davis",
+      "available_seat": 10,
+      "price": 30,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "6",
+      "class_name": "Restorative Yoga",
+      "instructor_name": "Sophia Roberts",
+      "available_seat": 8,
+      "price": 20,
+      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
+    },
+    {
+      "_id": "7",
+      "class_name": "Bikram Yoga",
+      "instructor_name": "John Wilson",
+      "available_seat": 15,
+      "price": 25,
+      "class_image": "bikram_yoga.jpg"
+    },
+    {
+      "_id": "8",
+      "class_name": "Iyengar Yoga",
+      "instructor_name": "Rachel Green",
+      "available_seat": 12,
+      "price": 20,
+      "class_image": "iyengar_yoga.jpg"
+    },
+    {
+      "_id": "9",
+      "class_name": "AcroYoga",
+      "instructor_name": "Daniel Thompson",
+      "available_seat": 8,
+      "price": 30,
+      "class_image": "acroyoga.jpg"
+    },
+    {
+      "_id": "10",
+      "class_name": "Yoga Sculpt",
+      "instructor_name": "Alexa Johnson",
+      "available_seat": 10,
+      "price": 25,
+      "class_image": "yoga_sculpt.jpg"
+    }
+  ]
+  
