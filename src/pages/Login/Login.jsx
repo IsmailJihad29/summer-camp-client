@@ -1,14 +1,25 @@
 import Lottie from "lottie-react";
 import loginAnnimation from "../../../public/login.json";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+
+  const { logIn} = useContext(AuthContext)
+  
+
   const handleLogin = event => { 
     event.preventDefault();
     const form = event.target
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    
+    logIn(email, password)
+      .then(result => {
+        const user = result.user 
+        console.log(user)
+    })
   }
     return (
         <div>
@@ -36,8 +47,10 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <input type="submit" value="login" className="btn btn-outline border-0 border-l-4 border-sky-400 text-sky-400 hover:bg-sky-400 hover:border-cyan-400 hover:text-white font-cinzel" />
-        </div>
-      </form>
+                </div>
+               <p>Are You New??? <Link to={'/register'}><span>Register Here!!!</span></Link></p>
+              </form>
+              
     </div>
   </div>
 </div>
