@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+
+
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  
+
+
+  const handleLogOut = () => { 
+    logOut()
+      .then(() => { })
+    .catch(error => console.log(error))
+  }
+
   const navOptions = (
     <>
       <li className="hoverEffect ">
@@ -16,10 +30,26 @@ const Navbar = () => {
       <li className="hoverEffect ">
         <Link to="/dashboard">DASHBOARD</Link>
       </li>
+     
+      {
+        user ? <>
+          <button className="hoverEffect" onClick={handleLogOut}>LogOut</button>
+           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+              </label>
+          
+        </> :
+      <>
       <li className="hoverEffect ">
-        <Link to="/login">LOGIN</Link>
-      </li>
+      <Link to="/login">LOGIN</Link>
+    </li>
     </>
+    }
+    </>
+
+   
   );
   return (
     <>
@@ -47,11 +77,6 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 text-yellow-700 rounded-box w-52"
             >
               
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-              </label>
               {navOptions}
             </ul>
             
@@ -65,11 +90,7 @@ const Navbar = () => {
         </div>
         <div className="navbar justify-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </label>
+    
         </div>
        
       </div>
