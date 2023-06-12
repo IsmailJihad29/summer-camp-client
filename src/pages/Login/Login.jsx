@@ -2,11 +2,16 @@ import Lottie from "lottie-react";
 import loginAnnimation from "../../../public/login.json";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
-  const { logIn} = useContext(AuthContext)
+  const { logIn } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || '/'
   
 
   const handleLogin = event => { 
@@ -18,6 +23,14 @@ const Login = () => {
       .then(result => {
         const user = result.user 
         console.log(user)
+        Swal.fire({
+          position: 'top-middle',
+          icon: 'success',
+          title: 'Successfully Login',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        navigate(from, {replace: true})
     })
   }
     return (

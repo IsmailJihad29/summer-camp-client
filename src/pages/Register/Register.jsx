@@ -1,20 +1,22 @@
 import Lottie from "lottie-react";
 import registerAnnimation from "../../../public/register.json";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
-  const {createUser}= useContext(AuthContext)
-
+  const {createUser, updateUser}= useContext(AuthContext)
+  
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     console.log(data);
@@ -22,6 +24,21 @@ const Register = () => {
     .then(result => {
       const loggedUser = result.user
       console.log(loggedUser)
+      updateUser(data.name, data.photo)
+        .then(() => {
+          console.log("user profile photo updated successfully")
+          reset()
+          Swal.fire({
+            position: 'top-middle',
+            icon: 'success',
+            title: 'Successfully Created Your Profile',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          navigate('/')
+         
+        })
+      .catch(error => console.log(error))
     })
 
   };
@@ -81,7 +98,7 @@ const Register = () => {
                     className="input input-bordered required"
                   />
                   {errors.photo && (
-                    <span className="text-red-500">Photo is required</span>
+                    <span className="text-red-500">Photo URL is required</span>
                   )}
                 </div>
                 <div className="form-control">
