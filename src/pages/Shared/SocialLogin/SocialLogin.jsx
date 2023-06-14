@@ -27,12 +27,8 @@ const SocialLogin = () => {
             }),
           })
             .then(res => res.json())
-          .then(data => {
-            console.log(data) 
-            if (data.insertedId) {
-
-                navigate(from, {replace: true})
-            }
+          .then(() => {
+            navigate(from, {replace: true})
             })
               
         })
