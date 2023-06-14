@@ -1,83 +1,74 @@
 [
-    {
-      "_id": "1",
-      "class_name": "Hatha Yoga",
-      "instructor_name": "Emily Smith",
-      "available_seat": 12,
-      "price": 20,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "2",
-      "class_name": "Vinyasa Flow",
-      "instructor_name": "Michael Johnson",
-      "available_seat": 8,
-      "price": 25,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "3",
-      "class_name": "Yin Yoga",
-      "instructor_name": "Sarah Thompson",
-      "available_seat": 10,
-      "price": 18,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "4",
-      "class_name": "Kundalini Yoga",
-      "instructor_name": "David Thompson",
-      "available_seat": 15,
-      "price": 22,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "5",
-      "class_name": "Power Yoga",
-      "instructor_name": "Jessica Davis",
-      "available_seat": 10,
-      "price": 30,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "6",
-      "class_name": "Restorative Yoga",
-      "instructor_name": "Sophia Roberts",
-      "available_seat": 8,
-      "price": 20,
-      "class_image": "https://i.ibb.co/m06D3rD/Vinyasa.jpg"
-    },
-    {
-      "_id": "7",
-      "class_name": "Bikram Yoga",
-      "instructor_name": "John Wilson",
-      "available_seat": 15,
-      "price": 25,
-      "class_image": "bikram_yoga.jpg"
-    },
-    {
-      "_id": "8",
-      "class_name": "Iyengar Yoga",
-      "instructor_name": "Rachel Green",
-      "available_seat": 12,
-      "price": 20,
-      "class_image": "iyengar_yoga.jpg"
-    },
-    {
-      "_id": "9",
-      "class_name": "AcroYoga",
-      "instructor_name": "Daniel Thompson",
-      "available_seat": 8,
-      "price": 30,
-      "class_image": "acroyoga.jpg"
-    },
-    {
-      "_id": "10",
-      "class_name": "Yoga Sculpt",
-      "instructor_name": "Alexa Johnson",
-      "available_seat": 10,
-      "price": 25,
-      "class_image": "yoga_sculpt.jpg"
-    }
-  ]
-  
+  {
+    "class_name": "Guitar 101",
+    "class_image": "https://i.ibb.co/4pZDKgV/jacek-dylag-h-UHzai-AHu-Uc-unsplash.jpg",
+    "available_seat": 10,
+    "instructor": "John Smith",
+    "_id": 1,
+    "price": "$100",
+    "enrolled_student": 0
+  },
+  {
+    "class_name": "Piano Basics",
+    "class_image": "https://i.ibb.co/jHcpgYN/lorenzo-spoleti-Mlh-JNEUQp-Bs-unsplash.jpg",
+    "available_seat": 8,
+    "instructor": "Emily Davis",
+    "_id": 2,
+    "price": "$120",
+    "enrolled_student": 0
+  },
+  {
+    "class_name": "Drumming Fundamentals",
+    "class_image": "https://i.ibb.co/C0tx9G4/matthijs-smit-b-RG2-C0-FAQEY-unsplash.jpg",
+    "available_seat": 6,
+    "instructor": "Mike Johnson",
+    "_id": 3,
+    "price": "$90",
+    "enrolled_student": 6
+  },
+  {
+    "class_name": "Vocal Training",
+    "class_image": "https://i.ibb.co/PmfQsQ2/360-F-408990068-A8-Qz-YIfg-Chv66j71u5eavc-IKA6-NC2-ML3.jpg",
+    "available_seat": 12,
+    "instructor": "Sarah Thompson",
+    "_id": 4,
+    "price": "$80",
+    "enrolled_student": 45
+  },
+  {
+    "class_name": "Violin Mastery",
+    "class_image": "https://i.ibb.co/W21pGh2/joel-wyncott-WYi-Ik-QFcl-A4-unsplash.jpg",
+    "available_seat": 7,
+    "instructor": "Jennifer Lee",
+    "_id": 5,
+    "price": "$110",
+    "enrolled_student": 0
+  },
+  {
+    "class_name": "Music Theory Workshop",
+    "class_image": "https://i.ibb.co/HV7Qn8K/stefany-andrade-Gb-SCAAs-U2-Fo-unsplash.jpg",
+    "available_seat": 15,
+    "instructor": "Robert Johnson",
+    "_id": 6,
+    "price": "$60",
+    "enrolled_student": 12
+  },
+  {
+    "class_name": "Saxophone Techniques",
+    "class_image": "https://i.ibb.co/0hZTpKN/african-american-jazz-musician-playing-saxophone.jpg",
+    "available_seat": 5,
+    "instructor": "Michael Brown",
+    "_id": 7,
+    "price": "$130",
+    "enrolled_student": 0
+  },
+  {
+    "class_name": "Songwriting and Composition",
+    "class_image": "https://i.ibb.co/qrBLSgS/soundtrap-5-Wj-tk8-Ens-unsplash.jpg",
+    "available_seat": 10,
+    "instructor": "Emily Anderson",
+    "_id": 8,
+    "price": "$90",
+    "enrolled_student": 0
+  }
+]

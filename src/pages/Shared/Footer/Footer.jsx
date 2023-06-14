@@ -9,7 +9,8 @@ const Footer = () => {
   <div>
     <img className='w-20' src={logo} alt="" />
     <p className="font-bold ">
-      <span className='font-cinzel text-2xl'>Yogasala</span> <br/>Discover the Journey Within at <span className='text-xl'>YogaSala </span> Embrace Balance, Harmony, and Inner Strength
+      <span className='font-cinzel text-2xl'>Rhythm Studio</span> <br/>Discover
+            the Joy of Music. Experience the Rhythm of Life.
     </p> 
     <p>Copyright © 2023 - All right reserved</p>
   </div> 
