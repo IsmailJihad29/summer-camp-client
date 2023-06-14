@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
 
@@ -37,7 +38,7 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen loginBg">
   <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
+    <div className="text-center w-6/12 lg:text-left">
     <Lottie animationData={loginAnnimation} loop={true} />
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -60,8 +61,10 @@ const Login = () => {
         <div className="form-control mt-6">
           <input type="submit" value="login" className="btn btn-outline border-0 border-l-4 border-sky-400 text-sky-400 hover:bg-sky-400 hover:border-cyan-400 hover:text-white font-cinzel" />
                 </div>
-               <p>Are You New??? <Link to={'/register'}><span>Register Here!!!</span></Link></p>
+                <p>Are You New??? <Link to={'/register'}><span>Register Here!!!</span></Link></p>
+                <SocialLogin/>
               </form>
+              
               
     </div>
   </div>

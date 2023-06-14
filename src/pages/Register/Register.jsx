@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
   const {
@@ -19,23 +20,39 @@ const Register = () => {
   const navigate = useNavigate()
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
     .then(result => {
       const loggedUser = result.user
       console.log(loggedUser)
       updateUser(data.name, data.photo)
         .then(() => {
-          console.log("user profile photo updated successfully")
-          reset()
-          Swal.fire({
-            position: 'top-middle',
-            icon: 'success',
-            title: 'Successfully Created Your Profile',
-            showConfirmButton: false,
-            timer: 1500
+          fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: {
+              "content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+            }),
           })
-          navigate('/')
+            .then(res => res.json())
+          .then(data => {
+            console.log(data) 
+            if (data.insertedId) {
+              reset()
+              Swal.fire({
+                position: 'top-middle',
+                icon: 'success',
+                title: 'Successfully Created Your Profile',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              navigate('/')
+            }
+            })
+
+         
          
         })
       .catch(error => console.log(error))
@@ -48,8 +65,8 @@ const Register = () => {
       <div>
         <div className="hero min-h-screen loginBg">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="text-center lg:text-left">
-              <Lottie animationData={registerAnnimation} loop={true} />
+            <div className="text-center w-6/12 lg:text-left">
+              <Lottie  animationData={registerAnnimation} loop={true} />
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form
@@ -151,7 +168,9 @@ const Register = () => {
                     <span>Login Here!!!</span>
                   </Link>
                 </p>
+                <SocialLogin/>
               </form>
+              
             </div>
           </div>
         </div>

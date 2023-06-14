@@ -29,6 +29,7 @@ const ClassCards = ({ item }) => {
       const enrolledClass = {
         class_id: _id,
         class_image,
+        class_name,
         instructor,
         price,
         available_seat,
