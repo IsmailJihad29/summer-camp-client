@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaHome } from "react-icons/fa";
+import { FaShoppingCart, FaWallet, FaHome,FaMusic } from "react-icons/fa";
 
 const Dashboard = () => {
   return (
@@ -19,25 +19,34 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <li>
-            <Link>
+          <li className="hoverEffect ">
+            <Link to={'/dashboard/home'}>
               <FaHome />
               User Home
             </Link>
           </li>
-          <li>
-            <Link>
+          <li className="hoverEffect ">
+            <Link to={'/dashboard/payment'}>
               <FaWallet />
               Payment History
             </Link>
           </li>
-          <li>
-            <Link>
+          <li className="hoverEffect ">
+            <Link to={'/dashboard/myCart'}>
               <FaShoppingCart />
               My Cart
             </Link>
           </li>
           <div className="divider"></div>
+          <li className="hoverEffect ">
+          <Link to={'/'}> 
+              <FaHome/>
+              Home
+            </Link>
+          </li>
+          <li className="hoverEffect ">
+        <Link to="/classes"><FaMusic/> CLASSES</Link>
+      </li>
         </ul>
       </div>
     </div>
