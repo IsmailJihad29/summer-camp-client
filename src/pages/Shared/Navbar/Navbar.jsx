@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [cart] = useCart()
 
   const handleLogOut = () => {
     logOut()
@@ -28,9 +31,9 @@ const Navbar = () => {
       {user ? (
         <>
           <li className="hoverEffect ">
-        <Link to="/dashboard">
-          Dashboard
-            <div className="badge badge-secondary">+99</div>
+        <Link to="/dashboard/myCart">
+          MyClasses
+              <div className="badge badge-secondary">{ cart?.length}</div>
 
         </Link>
       </li>
