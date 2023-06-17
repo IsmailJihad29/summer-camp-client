@@ -9,6 +9,7 @@ import PrivetRoutes from "./PrivetRoutes";
 import AllClasses from "../pages/AllClasses/AllClasses";
 import Dashboard from "../Layout/Main/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
       {
         path: 'myCart',
         element: <MyCart></MyCart>
-      }
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers/>
+      },
     ]
   }
 ]);
