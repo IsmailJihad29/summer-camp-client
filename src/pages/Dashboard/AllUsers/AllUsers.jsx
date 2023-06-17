@@ -10,8 +10,33 @@ const AllUsers = () => {
   });
     
     const handleDelete= user => {
-     
+      Swal.fire({
+        title: 'Are you sure? You Want To delete This User',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/users/admin/${user._id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire(
+                            'Deleted!',
+                            `${user.name} has been deleted successfully`,
+                            'success'
+                        )
+                    }
+                })
+        }
+    })
   }
+  
   const handleUser = user => { 
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
       method: "PATCH",
@@ -55,7 +80,7 @@ const AllUsers = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td> {user.role === 'admin' ? 'admin': <button onClick={()=> handleUser(user._id)} className="btn rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-sky-500 text-white hover:text-sky-500">
+                <td> {user.role === 'admin' ? 'admin': <button onClick={() => handleUser(user)} className="btn rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-sky-500 text-white hover:text-sky-500">
                 <FaUserShield/>
                 </button> } </td>
                 <td>
