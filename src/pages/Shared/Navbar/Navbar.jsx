@@ -3,6 +3,8 @@ import logo from "../../../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,6 +17,57 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+
+
+
+  const adminNav = (
+    <>
+    <li className="hoverEffect ">
+        <Link to="/dashboard/manage-class">
+          Dashboard
+              <div className="badge badge-secondary">{ cart?.length}</div>
+
+        </Link>
+      </li>
+    </>
+  )
+
+  const instructorNav = (
+    <>
+    <li className="hoverEffect ">
+        <Link to="/dashboard/manage-class">
+          Dashboard
+              <div className="badge badge-secondary">{ cart?.length}</div>
+
+        </Link>
+      </li>
+    </>
+  )
+  const studentNav = (
+    <>
+    <li className="hoverEffect ">
+        <Link to="/dashboard/myCart">
+          Dashboard
+              <div className="badge badge-secondary">{ cart?.length}</div>
+
+        </Link>
+      </li>
+    </>
+  )
+
+  const navCondition = () => {
+    if (isAdmin) {
+      return adminNav;
+    } else if (isInstructor) {
+      return instructorNav;
+    } else {
+      return studentNav;
+    }
+  };
+
+
   const navOptions = (
     <>
       <li className="hoverEffect ">
@@ -26,17 +79,10 @@ const Navbar = () => {
       <li className="hoverEffect ">
         <Link to="/instractor">INSTRACTOR</Link>
       </li>
-      
+      {navCondition()}
 
       {user ? (
         <>
-          <li className="hoverEffect ">
-        <Link to="/dashboard/myCart">
-          MyClasses
-              <div className="badge badge-secondary">{ cart?.length}</div>
-
-        </Link>
-      </li>
           <li><button className="hoverEffect" onClick={handleLogOut}>
             LogOut
           </button></li>
@@ -58,7 +104,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-2xl">
+      <div className="navbar footerBg  text-white max-w-screen-3xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

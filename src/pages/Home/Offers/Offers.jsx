@@ -4,7 +4,7 @@ import icon2 from "../../../../public/Icons/instructor.png";
 import icon3 from "../../../../public/Icons/support.png";
 import icon4 from "../../../../public/Icons/perfom.png";
 
-const Benifits = () => {
+const Offers = () => {
   return (
     <section className="my-12 mt-20">
       <SectionTittle
@@ -61,4 +61,4 @@ const Benifits = () => {
   );
 };
 
-export default Benifits;
+export default Offers;

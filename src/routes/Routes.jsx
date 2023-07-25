@@ -10,12 +10,17 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import Dashboard from "../Layout/Main/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import Error from "../pages/ErrorPage/Error";
+import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
+import InstructorClass from "../pages/Dashboard/InstructorClass/InstructorClass";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
-        element: <Main />,
+    element: <Main />,
+        errorElement: <Error/>,
         children: [
             { 
               path: "/",
@@ -39,6 +44,7 @@ const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <PrivetRoutes><Dashboard /></PrivetRoutes>,
+    errorElement: <Error/>,
     children: [
       {
         path: 'myCart',
@@ -47,6 +53,18 @@ const router = createBrowserRouter([
       {
         path: 'allusers',
         element: <AllUsers/>
+      },
+      {
+        path: 'manage-class',
+        element: <ManageClass/>
+      },
+      {
+        path: 'instructor-class',
+        element: <InstructorClass/>
+      },
+      {
+        path: 'addclass',
+        element: <AddClass/>
       },
     ]
   }

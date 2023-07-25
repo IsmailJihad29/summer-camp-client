@@ -1,12 +1,85 @@
-import { Link, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaHome, FaMusic,FaEdit ,FaUsers } from "react-icons/fa";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import {
+  FaShoppingCart,
+  FaWallet,
+  FaHome,
+  FaMusic,
+  FaEdit,
+  FaUsers,
+} from "react-icons/fa";
 import { BsMusicNoteList } from "react-icons/bs";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Dashboard = () => {
+  // TODO:  Making Admin
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const navigate = useNavigate();
 
-// TODO:  Making Admin 
-  const isAdmin = true
+  const adminMenu = (
+    <>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/manage-class"}>
+          <FaEdit />
+          Manage Classes
+        </Link>
+      </li>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/addclass"}>
+          <BsMusicNoteList />
+          Add Classes
+        </Link>
+      </li>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/allusers"}>
+          <FaUsers />
+          All Users
+        </Link>
+      </li>
+    </>
+  );
 
+  const instructorMenu = (
+    <>
+      <li className="hoverEffect">
+        <Link to="dashboard/instructor-class">My Classes</Link>
+      </li>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/addclass"}>
+          <BsMusicNoteList />
+          Add Classes
+        </Link>
+      </li>
+    </>
+  );
+
+  const studentMenu = (
+    <>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/payment"}>
+          <FaWallet />
+          Payment History
+        </Link>
+      </li>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/myCart"}>
+          <FaShoppingCart />
+          My Cart
+        </Link>
+      </li>
+    </>
+  );
+
+  const mainMenu = () => {
+    if (isAdmin) {
+      return adminMenu;
+    } else if (isInstructor) {
+      return instructorMenu;
+    } else {
+      return studentMenu;
+    }
+  };
 
   return (
     <div className="drawer lg:drawer-open">
@@ -21,70 +94,44 @@ const Dashboard = () => {
           See Tabs
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side ">
         <ul className="menu p-4 w-full h-full bg-base-300 text-white ">
           {/* Sidebar content here */}
+          <div className="my-4 px-4 mr-2 py-4 text-center border rounded-xl">
+            {isAdmin && (
+              <h1 className="text-3xl font-bold text-sky-300">
+                {" "}
+                Admin Dashboard
+              </h1>
+            )}
+            {isInstructor && (
+              <h1 className="text-3xl font-bold text-sky-300">
+                {" "}
+                Instructor Dashboard
+              </h1>
+            )}
+            {isInstructor === isAdmin && (
+              <h1 className="text-3xl font-bold text-sky-300">
+                {" "}
+                Student Dashboard
+              </h1>
+            )}
+          </div>
 
-          {
-            isAdmin ? <>
-              <li className="hoverEffect ">
-            <Link to={'/dashboard/home'}>
-              <FaHome />
-              Admin Home
-            </Link>
-          </li>
-          <li className="hoverEffect ">
-            <Link to={'/dashboard/payment'}>
-             <BsMusicNoteList/>
-              Add Classes
-            </Link>
-          </li>
-          <li className="hoverEffect ">
-            <Link to={'/dashboard/myCart'}>
-              <FaEdit/>
-              Manage Classes 
-            </Link>
-          </li>
-          <li className="hoverEffect ">
-            <Link to={'/dashboard/allusers'}>
-              <FaUsers/>
-              All Users
-            </Link>
-          </li>
+          {mainMenu()}
 
-            </> : <>
-            <li className="hoverEffect ">
-            <Link to={'/dashboard/home'}>
-              <FaHome />
-              User Home
-            </Link>
-          </li>
-          <li className="hoverEffect ">
-            <Link to={'/dashboard/payment'}>
-              <FaWallet />
-              Payment History
-            </Link>
-          </li>
-          <li className="hoverEffect ">
-            <Link to={'/dashboard/myCart'}>
-              <FaShoppingCart />
-              My Cart
-            </Link>
-          </li>
-            </>
-          }
-
-          
           <div className="divider"></div>
           <li className="hoverEffect ">
-          <Link to={'/'}> 
-              <FaHome/>
+            <Link to={"/"}>
+              <FaHome />
               Home
             </Link>
           </li>
           <li className="hoverEffect ">
-        <Link to="/classes"><FaMusic/> CLASSES</Link>
-      </li>
+            <Link to="/classes">
+              <FaMusic /> CLASSES
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

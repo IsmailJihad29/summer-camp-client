@@ -1,12 +1,13 @@
 import PopularClasses from "../PopularClasses/PopularClasses";
 import Banner from "../Banner/Banner";
-import Benifits from "../Benifits/Benifits";
+import Offers from "../Offers/Offers";
+
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Benifits />
+            <Offers/>
             <PopularClasses/>
         </div>
     );
