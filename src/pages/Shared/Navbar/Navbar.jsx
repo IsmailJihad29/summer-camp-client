@@ -53,8 +53,7 @@ const Navbar = () => {
           </li>
           <li className="hoverEffect ">
             <Link to={"/myClass"}>
-              <BsMusicNoteList />
-              Add Classes
+              My Classes
             </Link>
           </li>
         </>
@@ -66,7 +65,12 @@ const Navbar = () => {
                 Dashboard
                 <div className="badge badge-secondary">{cart?.length}</div>
               </Link>
-            </li>
+                </li>
+                <li className="hoverEffect ">
+            <Link to={"/myClass"}>
+              My Classes
+            </Link>
+          </li>
           </>
         )
       )}

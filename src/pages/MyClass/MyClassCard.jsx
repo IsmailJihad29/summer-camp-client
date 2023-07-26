@@ -4,7 +4,7 @@ import { TbListDetails } from "react-icons/tb";
 import { FaTrash } from "react-icons/fa";
 import { RxUpdate } from "react-icons/rx";
 
-const MyClassCard = ({ item, index }) => {
+const MyClassCard = ({ item, index, handleDelete }) => {
   const {
     class_name,
     instructor,
@@ -12,7 +12,9 @@ const MyClassCard = ({ item, index }) => {
     price,
     class_image,
     enrolled_student,
-    email,
+      email,
+      status,
+    feedback,
     _id,
   } = item;
 
@@ -42,7 +44,8 @@ const MyClassCard = ({ item, index }) => {
         {available_seat}
         <br /> Enrolled Student {enrolled_student}
       </td>
-      <td>{available_seat}</td>
+      <td>{status}</td>
+      <td>{feedback}</td>
       <th>
         <Link to={`/toysDetail/${_id}`}>
           <button className="btn button-primary">

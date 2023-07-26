@@ -12,10 +12,13 @@ const AddClass = () => {
     const email = form.email.value;
     const price = form.price.value;
     const available_seat = form.available_seat.value;
+    const enrolled_student = 0;
+    const status = "pending";
+    const feedback = "";
 
 
     const classes = {
-     class_image, class_name, instructor, email, price, available_seat
+     class_image, class_name, instructor, email, price, available_seat, enrolled_student, status, feedback
     };
     console.log(classes)
 
@@ -29,7 +32,7 @@ const AddClass = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        if (data.insertedId > 0) {
+        if (data.insertedId) {
           Swal.fire({
             position: "top-center",
             icon: "success",
@@ -37,7 +40,7 @@ const AddClass = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset();
+          form.reset()
         }
       })
       .catch((error) => console.error(error.massage));

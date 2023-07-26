@@ -11,48 +11,39 @@ const MyClass = () => {
 
   const [classes] = useClass();
 
-    const myClass = classes.filter((data) => user?.email === data.email);
+  const myClass = classes.filter((data) => user?.email === data.email);
 
-    const [userClass, setUserClass] = useState(myClass)
-    
-    const handleDelete = (id) => {
-        Swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            fetch(`https://figlandia-server-ismailjihad29.vercel.app/toys/${id}`, {
-                method: "DELETE"
-            })
-              .then(res => res.json())
-              .then(data => {
-                if (data.deletedCount > 0) {
-                  Swal.fire(
-                    'Deleted!',
-                    'Your Class has been deleted.',
-                    'success'
-                  )
-                  const remainig = userClass.filter((data) => data._id !== id)
-                  setUserClass(remainig)
-                }
-            })
-          }
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/class/${id}`, {
+          method: "DELETE",
         })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Class has been deleted.", "success");
+            }
+          });
       }
-
- 
+    });
+  };
 
   return (
     <div>
       <section>
         <Cover img={cover2} tittle={"My Class"}></Cover>
 
-        <div className="overflow-x-auto mx-auto">
+        <div className="overflow-x-auto w-11/12 mx-auto my-10 ">
           <table className="table">
             {/* head */}
             <thead>
@@ -63,12 +54,18 @@ const MyClass = () => {
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Status</th>
+                <th>Feedback</th>
                 <th> Actions</th>
               </tr>
             </thead>
             <tbody>
-              {userClass.map((item, index) => (
-                <MyClassCard key={item._id} handleDelete={handleDelete} index={index} item={item}></MyClassCard>
+              {myClass.map((item, index) => (
+                <MyClassCard
+                  key={item._id}
+                  handleDelete={handleDelete}
+                  index={index}
+                  item={item}
+                ></MyClassCard>
               ))}
             </tbody>
           </table>
