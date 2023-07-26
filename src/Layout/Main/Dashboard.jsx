@@ -10,12 +10,23 @@ import {
 import { BsMusicNoteList } from "react-icons/bs";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
-  // TODO:  Making Admin
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const navigate = useNavigate();
+
+  const { logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+    
+  };
 
   const adminMenu = (
     <>
@@ -30,6 +41,9 @@ const Dashboard = () => {
           <BsMusicNoteList />
           Add Classes
         </Link>
+      </li>
+      <li className="hoverEffect">
+        <Link to="/myClass">My Classes</Link>
       </li>
       <li className="hoverEffect ">
         <Link to={"/dashboard/allusers"}>
@@ -66,6 +80,12 @@ const Dashboard = () => {
         <Link to={"/dashboard/myCart"}>
           <FaShoppingCart />
           My Cart
+        </Link>
+      </li>
+      <li className="hoverEffect ">
+        <Link to={"/dashboard/my-enroll-class"}>
+          <FaShoppingCart />
+          My Enroll Class
         </Link>
       </li>
     </>
@@ -131,6 +151,11 @@ const Dashboard = () => {
             <Link to="/classes">
               <FaMusic /> CLASSES
             </Link>
+          </li>
+          <li>
+            <button className="hoverEffect" onClick={handleLogOut}>
+              LogOut
+            </button>
           </li>
         </ul>
       </div>

@@ -165,7 +165,7 @@ const Register = () => {
                 <p>
                   Already Registred ???{" "}
                   <Link to={"/login"}>
-                    <span>Login Here!!!</span>
+                    <span className="text-sky-400">Login Here!!!</span>
                   </Link>
                 </p>
                 <SocialLogin/>

@@ -14,6 +14,8 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import Error from "../pages/ErrorPage/Error";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import InstructorClass from "../pages/Dashboard/InstructorClass/InstructorClass";
+import MyEnrollClass from "../pages/Dashboard/MyEnrollClass/MyEnrollClass";
+import MyClass from "../pages/MyClass/MyClass";
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
             { 
               path: "/classes",
               element:<AllClasses/>
+            },
+            { 
+              path: "/myClass",
+              element:<PrivetRoutes><MyClass/> </PrivetRoutes>
             },
             { 
               path: "/login",
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'myCart',
         element: <MyCart></MyCart>
+      },
+      {
+        path: 'my-enroll-class',
+        element: <MyEnrollClass/>
       },
       {
         path: 'allusers',

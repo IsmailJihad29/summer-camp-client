@@ -3,13 +3,12 @@ import logo from "../../../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useCart from "../../../hooks/useCart";
-import useAdmin from "../../../hooks/useAdmin";
-import useInstructor from "../../../hooks/useInstructor";
+import useUserRole from "../../../hooks/useUserRole";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const [cart] = useCart()
+  const [cart] = useCart();
 
   const handleLogOut = () => {
     logOut()
@@ -17,56 +16,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
-  const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
-
-
-
-  const adminNav = (
-    <>
-    <li className="hoverEffect ">
-        <Link to="/dashboard/manage-class">
-          Dashboard
-              <div className="badge badge-secondary">{ cart?.length}</div>
-
-        </Link>
-      </li>
-    </>
-  )
-
-  const instructorNav = (
-    <>
-    <li className="hoverEffect ">
-        <Link to="/dashboard/manage-class">
-          Dashboard
-              <div className="badge badge-secondary">{ cart?.length}</div>
-
-        </Link>
-      </li>
-    </>
-  )
-  const studentNav = (
-    <>
-    <li className="hoverEffect ">
-        <Link to="/dashboard/myCart">
-          Dashboard
-              <div className="badge badge-secondary">{ cart?.length}</div>
-
-        </Link>
-      </li>
-    </>
-  )
-
-  const navCondition = () => {
-    if (isAdmin) {
-      return adminNav;
-    } else if (isInstructor) {
-      return instructorNav;
-    } else {
-      return studentNav;
-    }
-  };
-
+  const [useRole] = useUserRole();
 
   const navOptions = (
     <>
@@ -79,18 +29,67 @@ const Navbar = () => {
       <li className="hoverEffect ">
         <Link to="/instractor">INSTRACTOR</Link>
       </li>
-      {navCondition()}
+
+      {useRole === "student" ? (
+        <li className="hoverEffect ">
+          <Link to="/dashboard/myCart">
+            Dashboard
+            <div className="badge badge-secondary">{cart?.length}</div>
+          </Link>
+        </li>
+      ) : useRole === "instructor" ? (
+        <>
+          <li className="hoverEffect ">
+            <Link to="/dashboard/manage-class">
+              Dashboard
+              <div className="badge badge-secondary">{cart?.length}</div>
+            </Link>
+          </li>
+          <li className="hoverEffect ">
+            <Link to={"/dashboard/addclass"}>
+              <BsMusicNoteList />
+              Add Classes
+            </Link>
+          </li>
+          <li className="hoverEffect ">
+            <Link to={"/myClass"}>
+              <BsMusicNoteList />
+              Add Classes
+            </Link>
+          </li>
+        </>
+      ) : (
+        useRole === "admin" && (
+          <>
+            <li className="hoverEffect ">
+              <Link to="/dashboard/manage-class">
+                Dashboard
+                <div className="badge badge-secondary">{cart?.length}</div>
+              </Link>
+            </li>
+          </>
+        )
+      )}
 
       {user ? (
         <>
-          <li><button className="hoverEffect" onClick={handleLogOut}>
-            LogOut
-          </button></li>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src={user?.photoUrl} />
-            </div>
-          </label>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoUrl} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <button className="hoverEffect" onClick={handleLogOut}>
+                  LogOut
+                </button>
+              </li>
+            </ul>
+          </div>
         </>
       ) : (
         <>
@@ -99,12 +98,11 @@ const Navbar = () => {
           </li>
         </>
       )}
-      
     </>
   );
   return (
     <>
-      <div className="navbar footerBg  text-white max-w-screen-3xl">
+      <div className="navbar fixed z-10 bg-black bg-opacity-30  text-white max-w-screen-3xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

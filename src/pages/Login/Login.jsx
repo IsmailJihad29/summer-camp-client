@@ -61,7 +61,7 @@ const Login = () => {
         <div className="form-control mt-6">
           <input type="submit" value="login" className="btn btn-outline border-0 border-l-4 border-sky-400 text-sky-400 hover:bg-sky-400 hover:border-cyan-400 hover:text-white font-cinzel" />
                 </div>
-                <p>Are You New??? <Link to={'/register'}><span>Register Here!!!</span></Link></p>
+                <p>Are You New??? <Link to={'/register'}><span className="text-sky-400">Register Here!!!</span></Link></p>
                 <SocialLogin/>
               </form>
               
