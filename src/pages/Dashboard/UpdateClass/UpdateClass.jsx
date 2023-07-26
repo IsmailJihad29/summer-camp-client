@@ -1,33 +1,34 @@
-import Swal from "sweetalert2";
+import React from "react";
 import useAuth from "../../../hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddClass = () => {
+const UpdateClass = () => {
   const { user } = useAuth();
+  const classes = useLoaderData()
 
-  
 
+  const { class_name, available_seat, price, class_image, _id } = classes;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const class_name = form.class_name.value;
-    const class_image  = form.class_image.value;
-    const instructor = form.instructor.value;
-    const email = form.email.value;
+    const class_image = form.class_image.value;
     const price = form.price.value;
     const available_seat = form.available_seat.value;
-    const enrolled_student = 0;
-    const status = "pending";
-    const feedback = "";
-
+    
 
     const classes = {
-     class_image, class_name, instructor, email, price, available_seat, enrolled_student, status, feedback
+      class_image,
+      class_name,
+      price,
+      available_seat,
     };
-    console.log(classes)
 
-    fetch("http://localhost:5000/class", {
-      method: "POST",
+
+    fetch(`http://localhost:5000/class/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -35,16 +36,16 @@ const AddClass = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        if (data.insertedId) {
+        console.log(data);
+        if (data.modifiedCount >0) {
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "Added Toy Successfully",
+            title: `${class_name} is Updated Successfully`,
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset()
+          form.reset();
         }
       })
       .catch((error) => console.error(error.massage));
@@ -64,8 +65,7 @@ const AddClass = () => {
               type="text"
               name="instructor"
               required
-              defaultValue={user?.displayName
-              }
+              defaultValue={user?.displayName}
               disabled
               placeholder="Instructor Name"
               className=" block py-2.5 px-4 w-full  bg-transparent border-0 border-b-2 border-rose-500 rounded-lg peer"
@@ -96,6 +96,7 @@ const AddClass = () => {
               required
               type="text"
               name="class_name"
+              defaultValue={class_name}
               placeholder="Class Name"
               className="input input-bordered border-b-2 border-0 rounded-lg border-sky-500 focus:outline-none w-full"
             />
@@ -109,6 +110,7 @@ const AddClass = () => {
               required
               type="url"
               name="class_image"
+              defaultValue={class_image}
               placeholder="Class Image URL "
               className="input input-bordered border-b-2 border-0 rounded-lg border-sky-500 focus:outline-none w-full"
             />
@@ -122,6 +124,7 @@ const AddClass = () => {
               type="number"
               name="price"
               id="price"
+              defaultValue={price}
               className="block py-2.5 px-o w-full   bg-transparent border-0 border-b-2 border-sky-300 rounded-lg   focus:outline-none focus:ring-0  peer"
               placeholder=" "
             />
@@ -140,15 +143,16 @@ const AddClass = () => {
               type="number"
               name="available_seat"
               id="
-              available_seat
-              "
+                available_seat
+                "
+              defaultValue={available_seat}
               className="block py-2.5 px-0 w-full   bg-transparent border-0 border-b-2 border-sky-300 rounded-lg    focus:outline-none focus:ring-0  peer"
               placeholder="
-               "
+                 "
             />
             <label
               htmlFor=" available_seat
-              "
+                "
               className="peer-focus:font-medium absolute  px-4  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Available Seat
@@ -163,4 +167,4 @@ const AddClass = () => {
   );
 };
 
-export default AddClass;
+export default UpdateClass;

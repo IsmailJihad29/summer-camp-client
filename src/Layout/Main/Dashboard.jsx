@@ -25,7 +25,6 @@ const Dashboard = () => {
         navigate("/");
       })
       .catch((error) => console.log(error));
-    
   };
 
   const adminMenu = (
@@ -42,14 +41,14 @@ const Dashboard = () => {
           Add Classes
         </Link>
       </li>
-      <li className="hoverEffect">
-        <Link to="/myClass">My Classes</Link>
-      </li>
       <li className="hoverEffect ">
         <Link to={"/dashboard/allusers"}>
           <FaUsers />
           All Users
         </Link>
+      </li>
+      <li className="hoverEffect">
+        <Link to="/dashboard/myClass">My Classes</Link>
       </li>
     </>
   );
@@ -57,7 +56,7 @@ const Dashboard = () => {
   const instructorMenu = (
     <>
       <li className="hoverEffect">
-        <Link to="dashboard/instructor-class">My Classes</Link>
+        <Link to="/dashboard/myClass">My Classes</Link>
       </li>
       <li className="hoverEffect ">
         <Link to={"/dashboard/addclass"}>

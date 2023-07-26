@@ -1,8 +1,6 @@
 import { useState } from "react";
-import cover2 from "../../../public/cover/cover2.jpg";
-import useAuth from "../../hooks/useAuth";
-import useClass from "../../hooks/useClass";
-import Cover from "../Cover/Cover";
+import useAuth from "../../../hooks/useAuth";
+import useClass from "../../../hooks/useClass";
 import MyClassCard from "./MyClassCard";
 import Swal from "sweetalert2";
 
@@ -41,9 +39,7 @@ const MyClass = () => {
   return (
     <div>
       <section>
-        <Cover img={cover2} tittle={"My Class"}></Cover>
-
-        <div className="overflow-x-auto w-11/12 mx-auto my-10 ">
+        <div className="overflow-x-auto w-full mx-auto my-10 ">
           <table className="table">
             {/* head */}
             <thead>

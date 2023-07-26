@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TbListDetails } from "react-icons/tb";
 import { FaTrash } from "react-icons/fa";
 import { RxUpdate } from "react-icons/rx";
 
@@ -47,13 +46,7 @@ const MyClassCard = ({ item, index, handleDelete }) => {
       <td>{status}</td>
       <td>{feedback}</td>
       <th>
-        <Link to={`/toysDetail/${_id}`}>
-          <button className="btn button-primary">
-            <TbListDetails />{" "}
-          </button>
-        </Link>{" "}
-        <br />
-        <Link to={`/update/${_id}`}>
+        <Link to={`/dashboard/update-class/${_id}`}>
           <button className="btn button-primary ">
             <RxUpdate />
           </button>

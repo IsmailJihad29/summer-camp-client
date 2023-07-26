@@ -67,7 +67,7 @@ const Navbar = () => {
               </Link>
                 </li>
                 <li className="hoverEffect ">
-            <Link to={"/myClass"}>
+            <Link to={"/dashboard/myClass"}>
               My Classes
             </Link>
           </li>
