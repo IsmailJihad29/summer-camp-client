@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const MyClass = () => {
   const { user } = useAuth();
 
-  const [classes] = useClass();
+  const [classes, refetch] = useClass();
 
   const myClass = classes.filter((data) => user?.email === data.email);
 
@@ -30,6 +30,8 @@ const MyClass = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Class has been deleted.", "success");
+              refetch()
+
             }
           });
       }

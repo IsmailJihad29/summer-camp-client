@@ -5,8 +5,10 @@ import ClassCards from "../../Shared/ClassCards/ClassCards";
 
 const PopularClasses = () => {
   const [classes] = useClass();
-  
-  const sortedClasses = classes.sort((a, b) => b.enrolled_student - a.enrolled_student);
+
+
+  const acceptedClass = classes.filter(data => data.status === "accepted")
+  const sortedClasses = acceptedClass.sort((a, b) => b.enrolled_student - a.enrolled_student);
   const topClasses = sortedClasses.slice(0, 6);
  
   return (

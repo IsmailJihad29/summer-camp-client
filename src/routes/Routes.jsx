@@ -71,7 +71,7 @@ const router = createBrowserRouter([
       },
       { 
         path: "update-class/:id",
-        element: <UpdateClass />,
+        element: <PrivetRoutes><UpdateClass /></PrivetRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/class/${params.id}`)
       },
       {

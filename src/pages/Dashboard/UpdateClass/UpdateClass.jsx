@@ -1,13 +1,14 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData,  useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateClass = () => {
   const { user } = useAuth();
+
+  const navigate = useNavigate();
+
   const classes = useLoaderData()
-
-
   const { class_name, available_seat, price, class_image, _id } = classes;
 
   const handleSubmit = (event) => {
@@ -17,15 +18,12 @@ const UpdateClass = () => {
     const class_image = form.class_image.value;
     const price = form.price.value;
     const available_seat = form.available_seat.value;
-    
-
     const classes = {
       class_image,
       class_name,
       price,
       available_seat,
     };
-
 
     fetch(`http://localhost:5000/class/${_id}`, {
       method: "PATCH",
@@ -46,6 +44,7 @@ const UpdateClass = () => {
             timer: 1500,
           });
           form.reset();
+          navigate("/dashboard/myClass")
         }
       })
       .catch((error) => console.error(error.massage));
@@ -54,7 +53,7 @@ const UpdateClass = () => {
   return (
     <div className="md:w-6/12 w-10/12 mx-auto my-16">
       <h1 className="mb-12 font-primary uppercase text-4xl font-extrabold  tr text-sky-500 lg:text-5xl  text-center border-0 border-b-4 border-sky-500 rounded-lg w-1/2 mx-auto  ">
-        Add Your Class
+        Update Your Class
       </h1>
       <form id="myform" onSubmit={handleSubmit}>
         {/* Instructor name */}

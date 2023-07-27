@@ -5,7 +5,8 @@
     "available_seat": 10,
     "instructor": "John Smith",
     "price": "$100",
-    "enrolled_student": 0
+    "enrolled_student": 0,
+    "status": "accept"
   },
   {
     "class_name": "Piano Basics",
@@ -13,7 +14,8 @@
     "available_seat": 8,
     "instructor": "Emily Davis",
     "price": "$120",
-    "enrolled_student": 0
+    "enrolled_student": 0,
+    "status": "accept"
   },
   {
     "class_name": "Drumming Fundamentals",
@@ -21,7 +23,8 @@
     "available_seat": 6,
     "instructor": "Mike Johnson",
     "price": "$90",
-    "enrolled_student": 6
+    "enrolled_student": 6,
+    "status": "accept"
   },
   {
     "class_name": "Vocal Training",
@@ -29,7 +32,8 @@
     "available_seat": 12,
     "instructor": "Sarah Thompson",
     "price": "$80",
-    "enrolled_student": 45
+    "enrolled_student": 45,
+    "status": "accept"
   },
   {
     "class_name": "Violin Mastery",
@@ -37,7 +41,8 @@
     "available_seat": 7,
     "instructor": "Jennifer Lee",
     "price": "$110",
-    "enrolled_student": 0
+    "enrolled_student": 0,
+    "status": "accept"
   },
   {
     "class_name": "Music Theory Workshop",
@@ -45,7 +50,8 @@
     "available_seat": 15,
     "instructor": "Robert Johnson",
     "price": "$60",
-    "enrolled_student": 12
+    "enrolled_student": 12,
+    "status": "accept"
   },
   {
     "class_name": "Saxophone Techniques",
@@ -53,7 +59,8 @@
     "available_seat": 5,
     "instructor": "Michael Brown",
     "price": "$130",
-    "enrolled_student": 0
+    "enrolled_student": 0,
+    "status": "accept"
   },
   {
     "class_name": "Songwriting and Composition",
@@ -61,6 +68,7 @@
     "available_seat": 10,
     "instructor": "Emily Anderson",
     "price": "$90",
-    "enrolled_student": 0
+    "enrolled_student": 0,
+    "status": "accept"
   }
 ]
