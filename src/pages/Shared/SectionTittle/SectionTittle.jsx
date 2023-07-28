@@ -2,7 +2,9 @@
 const SectionTittle = ({sectionHeading, subHeading}) => {
     return (
       
-            <div className='md:w-4/12 mx-auto  text-center  rounded-lg border-0 border-x-4 border-sky-400 my-12'>
+            <div data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"  className='md:w-4/12 mx-auto  text-center  rounded-lg border-0 border-x-4 border-sky-400 my-12'>
             <p className='text-sky-400 mb-2 text-xl font-cinzel '>
                 {subHeading} 
             </p>

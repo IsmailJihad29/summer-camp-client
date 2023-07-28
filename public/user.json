@@ -1,0 +1,50 @@
+[
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "photoURL": "https://i.ibb.co/j34zHp7/alex-suprun-ZHv-M3-XIOHo-E-unsplash.jpg",
+      "role": "instructor"
+    },
+    {
+      "name": "Emily Davis",
+      "email": "emily.davis@example.com",
+      "photoURL": "https://i.ibb.co/FBzWLNX/jake-nackos-IF9-TK5-Uy-KI-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Mike Johnson",
+      "email": "mike.johnson@example.com",
+      "photoURL": "https://i.ibb.co/sJJVgvm/aatik-tasneem-7om-HUGhhm-Z0-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Sarah Thompson",
+      "email": "sarah.thompson@example.com",
+      "photoURL": "https://i.ibb.co/tMfzsW9/aiony-haust-3-TLl-97-HNJo-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Jennifer Lee",
+      "email": "jennifer.lee@example.com",
+      "photoURL": "https://i.ibb.co/FBzWLNX/jake-nackos-IF9-TK5-Uy-KI-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Robert Johnson",
+      "email": "robert.johnson@example.com",
+      "photoURL": "https://i.ibb.co/j34zHp7/alex-suprun-ZHv-M3-XIOHo-E-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Michael Brown",
+      "email": "michael.brown@example.com",
+      "photoURL": "https://i.ibb.co/sJJVgvm/aatik-tasneem-7om-HUGhhm-Z0-unsplash.jpg",
+      "role": "Instructor"
+    },
+    {
+      "name": "Emily Anderson",
+      "email": "emily.anderson@example.com",
+      "photoURL":"https://i.ibb.co/FBzWLNX/jake-nackos-IF9-TK5-Uy-KI-unsplash.jpg",
+      "role": "Instructor"
+    }
+  ]

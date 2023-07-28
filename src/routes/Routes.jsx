@@ -13,10 +13,10 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import Error from "../pages/ErrorPage/Error";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
-import InstructorClass from "../pages/Dashboard/InstructorClass/InstructorClass";
 import MyEnrollClass from "../pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
+import InstructorPage from "../pages/InstructorPage/InstructorPage";
 
 
 const router = createBrowserRouter([
@@ -32,6 +32,11 @@ const router = createBrowserRouter([
             { 
               path: "/classes",
               element:<AllClasses/>
+            },
+            { 
+              path: "/instructor",
+              element: <InstructorPage />,
+              loader: ()=> fetch('http://localhost:5000/instructor')
             },
             { 
               path: "/login",
@@ -73,10 +78,6 @@ const router = createBrowserRouter([
         path: "update-class/:id",
         element: <PrivetRoutes><UpdateClass /></PrivetRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/class/${params.id}`)
-      },
-      {
-        path: 'instructor-class',
-        element: <InstructorClass/>
       },
       {
         path: 'addclass',

@@ -1,8 +1,8 @@
 import Lottie from "lottie-react";
 import registerAnnimation from "../../../public/register.json";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useLocation,useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
@@ -18,6 +18,9 @@ const Register = () => {
   const {createUser, updateUser}= useContext(AuthContext)
   
   const navigate = useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [show, setShow] = useState(false);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -34,6 +37,8 @@ const Register = () => {
             body: JSON.stringify({
               name: data.name,
               email: data.email,
+              photoURL: data.photo,
+              role: "student"
             }),
           })
             .then(res => res.json())
@@ -48,16 +53,12 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
-              navigate('/')
+              navigate(from, { replace: true });
             }
             })
-
-         
-         
         })
       .catch(error => console.log(error))
     })
-
   };
 
   return (
@@ -123,7 +124,7 @@ const Register = () => {
                     <span className="font-garamond">Password</span>
                   </label>
                   <input
-                    type="password"
+                    type={show ? "text" : "password"}
                     placeholder="Type Your Password"
                     name="password"
                     {...register(
@@ -138,6 +139,7 @@ const Register = () => {
                       Please Enter Minimum eight characters, at least one letter, one number and one special character.
                     </span>
                   )}
+                 
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -146,14 +148,22 @@ const Register = () => {
                   <input
                     {...register("confirmPassword", { required: true, validate: (value) =>
                       value === watch("password") || "Passwords do not match" })}
-                    type="password"
+                      type={show ? "text" : "password"}
                     placeholder="Confirm Your Password"
                     name="confirmPassword"
                     className="input input-bordered required"
                   />
                     {errors.confirmPassword && (
           <span className="error text-red-500">{errors.confirmPassword.message}</span>
-        )}
+                  )}
+                   <label className="label">
+                  <input
+                    onClick={() => setShow(!show)}
+                    type="checkbox"
+                    className="checkbox checkbox-md"
+                  />
+                  <p>Show Password</p>
+                </label>
                 </div>
                 <div className="form-control mt-6">
                   <input

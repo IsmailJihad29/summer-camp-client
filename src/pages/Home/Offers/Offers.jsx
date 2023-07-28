@@ -13,7 +13,10 @@ const Offers = () => {
       />
 
       <div className="md:flex mx-auto md:w-9/12 font-semibold mb-20 p-5 gap-8  ">
-        <div className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
           <img className="w-20" src={icon1} alt="" />
           <h3 className="text-xl text-sky-400 font-bold font-garamond mt-4">
             Comprehensive Music Education
@@ -25,7 +28,7 @@ const Offers = () => {
           </p>
         </div>
 
-        <div className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
+        <div data-aos="fade-down" data-aos-duration="1000" className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
           <img className="w-20" src={icon3} alt="" />
           <h3 className="text-xl font-bold text-sky-400 font-garamond mt-4">
             Expert Instructors
@@ -35,7 +38,7 @@ const Offers = () => {
             your goals, providing personalized instruction, and ongoing support.
           </p>
         </div>
-        <div className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
+        <div  data-aos="fade-up" data-aos-duration="1000" className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
           <img className="w-20" src={icon2} alt="" />
           <h3 className="text-xl font-bold text-sky-400 font-garamond mt-4">
             Supportive Community
@@ -46,7 +49,7 @@ const Offers = () => {
           </p>
         </div>
 
-        <div className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
+        <div data-aos="fade-down" data-aos-duration="1000" className="w-6/12 card shadow-xl p-10 hover:scale-105 transition-transform duration-300">
           <img className="w-20" src={icon4} alt="" />
           <h3 className="text-xl font-bold text-sky-400 font-garamond mt-4">
             Performance Opportunities

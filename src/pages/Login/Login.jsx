@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import loginAnnimation from "../../../public/login.json";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -13,6 +13,8 @@ const Login = () => {
   const location = useLocation()
 
   const from = location.state?.from?.pathname || '/'
+
+  const [show, setShow] = useState(false);
   
 
   const handleLogin = event => { 
@@ -53,10 +55,15 @@ const Login = () => {
           <label className="label">
             <span className="font-garamond">Password</span>
           </label>
-          <input type="password" placeholder="Type Your Password" name="password" className="input input-bordered required" />
+          <input  type={show ? "text" : "password"} placeholder="Type Your Password" name="password" className="input input-bordered required" />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
+                  <input
+                    onClick={() => setShow(!show)}
+                    type="checkbox"
+                    className="checkbox checkbox-md"
+                  />
+                  <p>Show Password</p>
+                </label>
         </div>
         <div className="form-control mt-6">
           <input type="submit" value="login" className="btn btn-outline border-0 border-l-4 border-sky-400 text-sky-400 hover:bg-sky-400 hover:border-cyan-400 hover:text-white font-cinzel" />

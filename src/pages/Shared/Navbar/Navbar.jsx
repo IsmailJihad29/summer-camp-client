@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="/classes">CLASSES</Link>
       </li>
       <li className="hoverEffect ">
-        <Link to="/instractor">INSTRACTOR</Link>
+        <Link to="/instructor">INSTRACTOR</Link>
       </li>
 
       {useRole === "student" ? (
@@ -40,14 +40,13 @@ const Navbar = () => {
       ) : useRole === "instructor" ? (
         <>
           <li className="hoverEffect ">
-            <Link to="/dashboard/manage-class">
+            <Link to="/dashboard/myClass">
               Dashboard
               <div className="badge badge-secondary">{cart?.length}</div>
             </Link>
           </li>
           <li className="hoverEffect ">
             <Link to={"/dashboard/addclass"}>
-              <BsMusicNoteList />
               Add Classes
             </Link>
           </li>
@@ -80,7 +79,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user?.photoUrl} />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul
