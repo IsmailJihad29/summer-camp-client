@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Button from "../Button/Button";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
@@ -44,8 +43,8 @@ const ClassCards = ({ item }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          if (data.insertedId) {
-            refetch();
+          if (data.insertedId ) {
+            refetch()
             Swal.fire({
               position: "top-middle",
               icon: "success",
@@ -55,7 +54,8 @@ const ClassCards = ({ item }) => {
             });
           }
         });
-    } else {
+    }
+    else {
       Swal.fire({
         title: "Please Login to Enrolled The Class",
         icon: "warning",
@@ -72,7 +72,7 @@ const ClassCards = ({ item }) => {
   };
 
   return (
-    <div className={`card w-96 bg-base-100 shadow-xl ${available_seat == 0 ? "bg-red-300":"bg-gray-100"}`} >
+    <div  data-aos="zoom-in-right" className={`card w-96 bg-base-100 shadow-xl ${available_seat == 0 ? "bg-red-300":"bg-gray-100"}`} >
       <p className="bg-slate-900 text-white absolute right-0 rounded px-4 mr-4 mt-4">
          ${price}
         </p>
@@ -90,7 +90,8 @@ const ClassCards = ({ item }) => {
         <p> <span className="font-semibold">Total Enrolled Student </span>{enrolled_student }</p>
         <div className="card-actions justify-end">
           <button
-          disabled={available_seat == 0}
+            disabled={available_seat == 0 || user?.displayName === instructor}
+            onClick={()=>handleAddCart(_id)}
             className="btn button-primary">Enroll Now</button>
         </div>
       </div>

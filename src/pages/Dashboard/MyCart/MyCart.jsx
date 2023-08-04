@@ -1,40 +1,40 @@
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 import Button from "../../Shared/Button/Button";
 import SectionTittle from "../../Shared/SectionTittle/SectionTittle";
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const MyCart = () => {
   const [cart, refetch] = useCart();
 
-  const handleDelete = item => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${item._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire(
-                                'Deleted!',
-                                `${item.class_name} has been deleted successfully`,
-                                'success'
-                            )
-                        }
-                    })
-            }
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/carts/${item._id}`, {
+          method: "DELETE",
         })
-    }
-
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire(
+                "Deleted!",
+                `${item.class_name} has been deleted successfully`,
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="w-full px-10">
@@ -77,11 +77,14 @@ const MyCart = () => {
                     {classes.instructor}
                   </span>
                 </td>
-                <td>{classes.price}</td>
+                <td>${classes.price}</td>
                 <th>
                   <div className="flex">
-                    <Button btnHeading={"Pay Now"}></Button>
-                    <button onClick={()=> handleDelete(classes)} className="btn rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-red-500 text-white hover:text-red-500">
+                   <Link to={`/dashboard/payment/${classes._id}`}> <Button  btnHeading={"Pay Now"}></Button></Link>
+                    <button
+                      onClick={() => handleDelete(classes)}
+                      className="btn rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-red-500 text-white hover:text-red-500"
+                    >
                       <FaTrashAlt />
                     </button>
                   </div>

@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import loginAnnimation from "../../../public/login.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
@@ -12,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const [error, setError] = useState("")
   const from = location.state?.from?.pathname || '/'
 
   const [show, setShow] = useState(false);
@@ -34,6 +35,10 @@ const Login = () => {
           timer: 1500
         })
         navigate(from, {replace: true})
+      })
+      .catch(error => {
+        console.log(error)
+        setError(error)
     })
   }
     return (
@@ -63,7 +68,8 @@ const Login = () => {
                     className="checkbox checkbox-md"
                   />
                   <p>Show Password</p>
-                </label>
+                  </label>
+                  <p className="text-red-500">{ error.massege}</p>
         </div>
         <div className="form-control mt-6">
           <input type="submit" value="login" className="btn btn-outline border-0 border-l-4 border-sky-400 text-sky-400 hover:bg-sky-400 hover:border-cyan-400 hover:text-white font-cinzel" />

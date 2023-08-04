@@ -17,6 +17,7 @@ import MyEnrollClass from "../pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 import InstructorPage from "../pages/InstructorPage/InstructorPage";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
       {
         path: 'addclass',
         element: <AddClass/>
+      },
+      {
+        path: 'payment/:id',
+        element: <PrivetRoutes><Payment /></PrivetRoutes>,
+        loader:({params})=> fetch(`http://localhost:5000/carts/${params.id}`)
       },
     ]
   }
