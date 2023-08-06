@@ -16,7 +16,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
 
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://summer-camp-server-ismailjihad29.vercel.app/users`, {
             method: "POST",
             headers: {
               "content-Type": "application/json",

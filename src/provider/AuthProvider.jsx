@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
 
       if (curentUser) {
         axios
-          .post("http://localhost:5000/jwt", {
+          .post("https://summer-camp-server-ismailjihad29.vercel.app/jwt", {
             email: curentUser.email,
           })
           .then((data) => {

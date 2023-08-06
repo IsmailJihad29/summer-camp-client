@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             { 
               path: "/instructor",
               element: <InstructorPage />,
-              loader: ()=> fetch('http://localhost:5000/instructor')
+              loader: ()=> fetch('https://summer-camp-server-ismailjihad29.vercel.app/instructor')
             },
             { 
               path: "/login",
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
       { 
         path: "update-class/:id",
         element: <InstructorRoutes><UpdateClass /></InstructorRoutes>,
-        loader:({params})=> fetch(`http://localhost:5000/class/${params.id}`)
+        loader:({params})=> fetch(`https://summer-camp-server-ismailjihad29.vercel.app/class/${params.id}`)
       },
       {
         path: 'addclass',
@@ -90,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: 'payment/:id',
         element: <Payment />,
-        loader:({params})=> fetch(`http://localhost:5000/carts/${params.id}`)
+        loader:({params})=> fetch(`https://summer-camp-server-ismailjihad29.vercel.app/carts/${params.id}`)
       },
       {
         path: 'payment-history',

@@ -98,12 +98,12 @@ const [axiosSecure] = useAxiosSecure()
         <p> Available Seat <span className="font-semibold">{available_seat }</span></p>
         <p> <span className="font-semibold">Total Enrolled Student </span>{enrolled_student}</p>
         {
-          userCheck === "student"  && <div className="card-actions justify-end">
+          userCheck === "student" ||userCheck === null ?(<div className="card-actions justify-end">
           <button
             disabled={available_seat == 0 || user?.displayName === instructor }
             onClick={()=>handleAddCart(_id)}
             className="btn button-primary">Enroll Now</button>
-        </div> 
+        </div> ):<></>
         }
       </div>
     </div>
