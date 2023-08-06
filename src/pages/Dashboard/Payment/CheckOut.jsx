@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const CheckOut = ({ classes }) => {
   const { instructor, class_image, class_name, price, class_id, _id, enrolled_student, available_seat } = classes;
-  console.log(classes)
+  
   const stripe = useStripe();
   const elements = useElements();
   const [axiosSecure] = useAxiosSecure();
@@ -24,7 +24,7 @@ const CheckOut = ({ classes }) => {
   useEffect(() => {
     if (price > 0) { 
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        console.log("client secret", res.data.clientSecret);
+        
         setClientSecret(res.data.clientSecret);
       });
     }
@@ -70,7 +70,7 @@ const CheckOut = ({ classes }) => {
       setPaymentError(confirmError);
     }
 
-    console.log("payment intent", paymentIntent);
+    
     setProssesing(false);
 
     if (paymentIntent?.status === "succeeded") {
@@ -89,7 +89,7 @@ const CheckOut = ({ classes }) => {
         class_id,
       };
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
+      
         if (res.data.insertedId) {
           Swal.fire({
             position: "center",

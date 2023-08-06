@@ -8,7 +8,6 @@ const AllClasses = () => {
 
     const accpetClass = classes.filter(data => data.status === "accepted")
 
-    console.log(accpetClass)
 
     return (
 

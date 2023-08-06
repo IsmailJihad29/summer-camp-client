@@ -19,6 +19,8 @@ import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 import InstructorPage from "../pages/InstructorPage/InstructorPage";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import AdminRoutes from "./AdminRoutes";
+import InstructorRoutes from "./InstructorRoutes";
 
 
 const router = createBrowserRouter([
@@ -58,41 +60,41 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'myCart',
-        element: <PrivetRoutes><MyCart></MyCart></PrivetRoutes>
+        element: <PrivetRoutes><MyCart/> </PrivetRoutes>
       },
       { 
         path: "myClass",
-        element:<PrivetRoutes><MyClass/> </PrivetRoutes>
+        element:<InstructorRoutes><MyClass/> </InstructorRoutes>
       },
       {
         path: 'my-enroll-class',
-        element: <PrivetRoutes><MyEnrollClass/></PrivetRoutes>
+        element: <MyEnrollClass/>
       },
       {
         path: 'allusers',
-        element: <AllUsers/>
+        element: <AdminRoutes><AllUsers/></AdminRoutes>
       },
       {
         path: 'manage-class',
-        element:<PrivetRoutes> <ManageClass/></PrivetRoutes>
+        element:<AdminRoutes><ManageClass/></AdminRoutes>
       },
       { 
         path: "update-class/:id",
-        element: <PrivetRoutes><UpdateClass /></PrivetRoutes>,
+        element: <InstructorRoutes><UpdateClass /></InstructorRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/class/${params.id}`)
       },
       {
         path: 'addclass',
-        element: <PrivetRoutes><AddClass/></PrivetRoutes>
+        element: <InstructorRoutes><AddClass/></InstructorRoutes>
       },
       {
         path: 'payment/:id',
-        element: <PrivetRoutes><Payment /></PrivetRoutes>,
+        element: <Payment />,
         loader:({params})=> fetch(`http://localhost:5000/carts/${params.id}`)
       },
       {
         path: 'payment-history',
-        element: <PrivetRoutes><PaymentHistory></PaymentHistory></PrivetRoutes>,
+        element: <PaymentHistory />
       },
     ]
   }

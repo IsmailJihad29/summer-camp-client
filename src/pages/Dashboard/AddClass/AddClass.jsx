@@ -24,7 +24,6 @@ const AddClass = () => {
     const classes = {
      class_image, class_name, instructor, email, price, available_seat, enrolled_student, status, feedback
     };
-    console.log(classes)
 
     fetch("http://localhost:5000/class", {
       method: "POST",
@@ -35,7 +34,6 @@ const AddClass = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         if (data.insertedId) {
           Swal.fire({
             position: "top-center",

@@ -8,7 +8,6 @@ const ManageClass = () => {
     const [axiosSecure] = useAxiosSecure();
 
   const handleAccept = (id) => {
-    console.log(id);
     fetch(`http://localhost:5000/class/${id}`, {
       method: "POST",
       headers: {
@@ -18,7 +17,7 @@ const ManageClass = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        
         if (data.modifiedCount > 0) {
           Swal.fire({
             position: "top-center",
@@ -53,7 +52,7 @@ const ManageClass = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            
             if (data.modifiedCount > 0) {
               Swal.fire("Denied!", "Your file has been Denied.", "success");
               refetch();
@@ -69,9 +68,9 @@ const ManageClass = () => {
     const form = e.target;
     const feedback = form.feedback.value
     const id = form.class_id.value
-      console.log(feedback, id);
+     
       axiosSecure.put(`/feedback/${id}`, { feedback }).then((data) => {
-        console.log(data);
+        
       if (data.data.modifiedCount > 0) {
         Swal.fire({
           title: "feedback  Successfully!",

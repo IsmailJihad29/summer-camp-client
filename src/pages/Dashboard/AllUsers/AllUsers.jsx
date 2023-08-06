@@ -46,8 +46,8 @@ const AllUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
+          refetch();
           Swal.fire({
             position: "top-middle",
             icon: "success",
@@ -65,8 +65,8 @@ const AllUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
+          refetch()
           Swal.fire({
             position: "top-middle",
             icon: "success",

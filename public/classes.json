@@ -4,71 +4,79 @@
     "class_image": "https://i.ibb.co/4pZDKgV/jacek-dylag-h-UHzai-AHu-Uc-unsplash.jpg",
     "available_seat": 10,
     "instructor": "John Smith",
-    "price": "$100",
+    "email":"john.smith@example.com",
+    "price": "100",
     "enrolled_student": 0,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Piano Basics",
     "class_image": "https://i.ibb.co/jHcpgYN/lorenzo-spoleti-Mlh-JNEUQp-Bs-unsplash.jpg",
     "available_seat": 8,
     "instructor": "Emily Davis",
-    "price": "$120",
+    "email":"emily.davis@example.com",
+    "price": "120",
     "enrolled_student": 0,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Drumming Fundamentals",
     "class_image": "https://i.ibb.co/C0tx9G4/matthijs-smit-b-RG2-C0-FAQEY-unsplash.jpg",
     "available_seat": 6,
     "instructor": "Mike Johnson",
-    "price": "$90",
+    "email":"mike.johnson@example.com",
+    "price": "90",
     "enrolled_student": 6,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Vocal Training",
     "class_image": "https://i.ibb.co/PmfQsQ2/360-F-408990068-A8-Qz-YIfg-Chv66j71u5eavc-IKA6-NC2-ML3.jpg",
     "available_seat": 12,
     "instructor": "Sarah Thompson",
-    "price": "$80",
+    "email":"sarah.thompson@example.com",
+    "price": "80",
     "enrolled_student": 45,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Violin Mastery",
     "class_image": "https://i.ibb.co/W21pGh2/joel-wyncott-WYi-Ik-QFcl-A4-unsplash.jpg",
     "available_seat": 7,
     "instructor": "Jennifer Lee",
-    "price": "$110",
+    "email":"jennifer.lee@example.com",
+    "price": "110",
     "enrolled_student": 0,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Music Theory Workshop",
     "class_image": "https://i.ibb.co/HV7Qn8K/stefany-andrade-Gb-SCAAs-U2-Fo-unsplash.jpg",
     "available_seat": 15,
     "instructor": "Robert Johnson",
-    "price": "$60",
+    "email":"robert.johnson@example.com",
+    "price": "60",
     "enrolled_student": 12,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Saxophone Techniques",
     "class_image": "https://i.ibb.co/0hZTpKN/african-american-jazz-musician-playing-saxophone.jpg",
     "available_seat": 5,
     "instructor": "Michael Brown",
-    "price": "$130",
+    "email":"michael.brown@example.com",
+    "price": "130",
     "enrolled_student": 0,
-    "status": "accept"
+    "status": "accepted"
   },
   {
     "class_name": "Songwriting and Composition",
     "class_image": "https://i.ibb.co/qrBLSgS/soundtrap-5-Wj-tk8-Ens-unsplash.jpg",
     "available_seat": 10,
     "instructor": "Emily Anderson",
-    "price": "$90",
+    "email":"emily.anderson@example.com",
+    "price": "90",
     "enrolled_student": 0,
-    "status": "accept"
+    "status": "accepted"
   }
 ]

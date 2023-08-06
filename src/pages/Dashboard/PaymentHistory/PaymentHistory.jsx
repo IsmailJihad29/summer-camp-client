@@ -5,7 +5,7 @@ import SectionTittle from '../../Shared/SectionTittle/SectionTittle';
 const PaymentHistory = () => {
 
     const [enrolledClass] = useEnrolled()
-    console.log(enrolledClass)
+  
 
 
     return (

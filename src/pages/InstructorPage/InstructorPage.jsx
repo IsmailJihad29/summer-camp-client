@@ -6,7 +6,6 @@ import Cover from "../Cover/Cover";
 
 const InstructorPage = () => {
   const instructors = useLoaderData();
-  console.log(instructors);
 
   return (
     <div>

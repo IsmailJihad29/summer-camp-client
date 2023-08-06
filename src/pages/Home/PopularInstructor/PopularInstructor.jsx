@@ -8,13 +8,13 @@ const PopularInstructor = () => {
     fetch("http://localhost:5000/instructor")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         setPopularInst(data);
       });
   }, []);
 
   const topInstructor = populerInst.slice(0, 6);
-  console.log(topInstructor);
+
 
   return (
     <div className="mt-20">

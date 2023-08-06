@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useUserRole from "../../../hooks/useUserRole";
 
 
 const ClassCards = ({ item }) => {
@@ -19,7 +20,8 @@ const ClassCards = ({ item }) => {
 
 const [axiosSecure] = useAxiosSecure()
   const { user } = useAuth();
-  const [,refetch] = useCart();
+  const [, refetch] = useCart();
+  const [userCheck] = useUserRole()
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -94,13 +96,15 @@ const [axiosSecure] = useAxiosSecure()
         <div className="badge badge-secondary"> {instructor }</div>
       
         <p> Available Seat <span className="font-semibold">{available_seat }</span></p>
-        <p> <span className="font-semibold">Total Enrolled Student </span>{enrolled_student }</p>
-        <div className="card-actions justify-end">
+        <p> <span className="font-semibold">Total Enrolled Student </span>{enrolled_student}</p>
+        {
+          userCheck === "student"  && <div className="card-actions justify-end">
           <button
             disabled={available_seat == 0 || user?.displayName === instructor }
             onClick={()=>handleAddCart(_id)}
             className="btn button-primary">Enroll Now</button>
-        </div>
+        </div> 
+        }
       </div>
     </div>
   );
