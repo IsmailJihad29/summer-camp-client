@@ -40,10 +40,10 @@ const MyClassCard = ({ item, index, handleDelete }) => {
       </td>
       <td>${price}</td>
       <td>
-        {available_seat}
+        Available Seat {available_seat}
         <br /> Enrolled Student {enrolled_student}
       </td>
-      <td>{status}</td>
+      <td className={`${status === "accepted" ? "text-green-500": "text-red-600"}`}>{status} </td>
       <td>{feedback}</td>
       <th>
         <Link to={`/dashboard/update-class/${_id}`}>

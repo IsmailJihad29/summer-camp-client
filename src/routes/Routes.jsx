@@ -18,6 +18,7 @@ import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 import InstructorPage from "../pages/InstructorPage/InstructorPage";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'myCart',
-        element: <MyCart></MyCart>
+        element: <PrivetRoutes><MyCart></MyCart></PrivetRoutes>
       },
       { 
         path: "myClass",
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'my-enroll-class',
-        element: <MyEnrollClass/>
+        element: <PrivetRoutes><MyEnrollClass/></PrivetRoutes>
       },
       {
         path: 'allusers',
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'manage-class',
-        element: <ManageClass/>
+        element:<PrivetRoutes> <ManageClass/></PrivetRoutes>
       },
       { 
         path: "update-class/:id",
@@ -82,12 +83,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'addclass',
-        element: <AddClass/>
+        element: <PrivetRoutes><AddClass/></PrivetRoutes>
       },
       {
         path: 'payment/:id',
         element: <PrivetRoutes><Payment /></PrivetRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/carts/${params.id}`)
+      },
+      {
+        path: 'payment-history',
+        element: <PrivetRoutes><PaymentHistory></PaymentHistory></PrivetRoutes>,
       },
     ]
   }

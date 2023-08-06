@@ -2,15 +2,17 @@ import React from 'react';
 import useEnrolled from '../../../hooks/useEnrolled';
 import SectionTittle from '../../Shared/SectionTittle/SectionTittle';
 
-const MyEnrollClass = () => {
+const PaymentHistory = () => {
 
     const [enrolledClass] = useEnrolled()
+    console.log(enrolledClass)
+
+
     return (
-      
-           <div className="w-full px-10">
-      <div className="flex justify-evenly items-center">
-        <SectionTittle sectionHeading={"My Enroll CLass"}></SectionTittle>
-      </div>
+        <div className='w-full'>
+            <SectionTittle sectionHeading={"Peyment History"} subHeading={"See Your"}></SectionTittle>
+
+            <div className="w-full px-10">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -18,9 +20,9 @@ const MyEnrollClass = () => {
             <tr>
               <th>#</th>
               <th> Class Name</th>
-              <th>Instructor</th>
+              <th>Transaction Id</th>
+              <th>Date</th>
               <th>Price</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -44,20 +46,24 @@ const MyEnrollClass = () => {
                 </td>
                 <td>
                   <span className="badge badge-ghost badge-sm">
-                    {classes.instructor}
+                   {classes.transactionId}
+                  </span>
+                </td>
+                <td>
+                  <span className="badge badge-ghost badge-sm">
+                   {classes.date}
                   </span>
                 </td>
                 <td>${classes.price}</td>
-              
+                
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </div>
-
-        
+        </div>
     );
 };
 
-export default MyEnrollClass;
+export default PaymentHistory;

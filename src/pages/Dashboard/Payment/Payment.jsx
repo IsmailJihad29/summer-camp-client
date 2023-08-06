@@ -14,7 +14,7 @@ const Payment = () => {
             <SectionTittle subHeading={"Start Your Rythm Journey"} sectionHeading={"Pay Now"}></SectionTittle>
             <div className='w-1/3 mx-auto mt-4'>
             <Elements stripe={stripePromise}>
-                <CheckOut></CheckOut>
+                <CheckOut  classes={classes}></CheckOut>
             </Elements>
            </div>
         </div>

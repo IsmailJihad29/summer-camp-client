@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
 
 const ClassCards = ({ item }) => {
   const {
@@ -15,35 +17,29 @@ const ClassCards = ({ item }) => {
     _id,
   } = item;
 
+const [axiosSecure] = useAxiosSecure()
   const { user } = useAuth();
-  console.log(user);
-  const [refetch] = useCart();
+  const [,refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleAddCart = (classes) => {
     console.log(classes);
     if (user && user.email) {
-      const enrolledClass = {
-        class_id: _id,
+      axiosSecure.post("/carts", {
+        class_id:_id,
         class_image,
         class_name,
         instructor,
         price,
+        enrolled_student,
         available_seat,
         email: user.email,
-      };
-      fetch("http://localhost:5000/carts", {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-        },
-        body: JSON.stringify(enrolledClass),
-      })
-        .then((res) => res.json())
+       })
         .then((data) => {
           console.log(data);
-          if (data.insertedId ) {
+         
+        if (data.data.insertedId ) {
             refetch()
             Swal.fire({
               position: "top-middle",
@@ -51,6 +47,15 @@ const ClassCards = ({ item }) => {
               title: "Successfully Added To Your Cart",
               showConfirmButton: false,
               timer: 1500,
+            });
+          }
+          else  if (data.data === "already added") {
+            Swal.fire({
+              position: "top-center",
+              icon: "warning",
+              title: "Class already added",
+              showConfirmButton: false,
+              timer: 1000,
             });
           }
         });
@@ -71,8 +76,10 @@ const ClassCards = ({ item }) => {
     }
   };
 
+  
+
   return (
-    <div  data-aos="zoom-in-right" className={`card w-96 bg-base-100 shadow-xl ${available_seat == 0 ? "bg-red-300":"bg-gray-100"}`} >
+    <div  data-aos="zoom-in-right" className={`card lg:w-96 w-full bg-base-100 shadow-xl ${available_seat == 0 ? "bg-red-300":"bg-gray-100"}`} >
       <p className="bg-slate-900 text-white absolute right-0 rounded px-4 mr-4 mt-4">
          ${price}
         </p>
@@ -90,7 +97,7 @@ const ClassCards = ({ item }) => {
         <p> <span className="font-semibold">Total Enrolled Student </span>{enrolled_student }</p>
         <div className="card-actions justify-end">
           <button
-            disabled={available_seat == 0 || user?.displayName === instructor}
+            disabled={available_seat == 0 || user?.displayName === instructor }
             onClick={()=>handleAddCart(_id)}
             className="btn button-primary">Enroll Now</button>
         </div>

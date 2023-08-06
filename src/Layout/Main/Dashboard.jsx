@@ -11,12 +11,13 @@ import { BsMusicNoteList } from "react-icons/bs";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useAuth from "../../hooks/useAuth";
+import useCart from "../../hooks/useCart";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const navigate = useNavigate();
-
+  const [cart]= useCart()
   const { logOut } = useAuth();
 
   const handleLogOut = () => {
@@ -70,7 +71,7 @@ const Dashboard = () => {
   const studentMenu = (
     <>
       <li className="hoverEffect ">
-        <Link to={"/dashboard/payment"}>
+        <Link to={"/dashboard/payment-history"}>
           <FaWallet />
           Payment History
         </Link>
@@ -79,6 +80,7 @@ const Dashboard = () => {
         <Link to={"/dashboard/myCart"}>
           <FaShoppingCart />
           My Cart
+          <div className="badge badge-secondary">{cart?.length}</div>
         </Link>
       </li>
       <li className="hoverEffect ">

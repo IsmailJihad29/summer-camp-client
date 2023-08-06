@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Lily Brown",
+    "review": "I had an amazing experience at Rhythm Studio! The instructors were talented, and the lessons were engaging. The studio's atmosphere was conducive to learning and creativity.",
+    "rating": 4.9,
+    "photoURL": "https://i.ibb.co/pdb0fbH/4daa2f10487fae2ab5826311b8109366.jpg",
+    "email": "lily.brown@example.com"
+  },
+  {
+    "name": "Oliver Anderson",
+    "review": "Rhythm Studio is the perfect place to learn music! The instructors are patient and skilled, and the facilities are top-notch. I would recommend this studio to anyone looking to pursue their passion for music.",
+    "rating": 4.8,
+    "photoURL": "https://i.ibb.co/pj6MDVx/jd-mason-2o-Ui-Uu5-QAys-unsplash.jpg",
+    "email": "oliver.anderson@example.com"
+  },
+  {
+    "name": "Sophia Roberts",
+    "review": "I had a fantastic time at Rhythm Studio! The classes were well-structured, and the teachers were encouraging. The studio's positive environment helped me gain confidence in my musical abilities.",
+    "rating": 4.7,
+    "photoURL": "https://i.ibb.co/y85BvTX/romina-farias-Bs-Z71j4i-m4-unsplash.jpg",
+    "email": "sophia.roberts@example.com"
+  },
+  {
+    "name": "Ethan Johnson",
+    "review": "Rhythm Studio exceeded my expectations! The instructors were friendly and knowledgeable, and I received valuable feedback to improve my skills. I'm grateful for the experience!",
+    "rating": 4.9,
+    "photoURL": "https://i.ibb.co/88tqpmm/ben-den-engelsen-YUu9-UAc-OKZ4-unsplash-1.jpg",
+    "email": "ethan.johnson@example.com"
+  },
+  {
+    "name": "Ava Williams",
+    "review": "My time at Rhythm Studio was fantastic! The teachers were patient, and the studio had a supportive community. I thoroughly enjoyed my music learning journey with them.",
+    "rating": 4.6,
+    "photoURL": "https://i.ibb.co/7zxLxzm/sazfg.jpg",
+    "email": "ava.williams@example.com"
+  }
+]
