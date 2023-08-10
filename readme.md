@@ -1,7 +1,7 @@
 # Rhythm Studio Web Application
 
 
-## <a href="https://summer-camp-79afc.web.app" target="_blank"> Live Link </a> 
+## <a href="https://tangerine-cat-3939c1.netlify.app/" target="_blank"> Live Link </a> 
 #### admin login for - <br>
 
 mail - admin@gmail.com <br>
