@@ -25,7 +25,7 @@ const UpdateClass = () => {
       available_seat,
     };
 
-    fetch(`https://summer-camp-server-ismailjihad29.vercel.app/class/${_id}`, {
+    fetch(`https://summer-camp-server-woad-six.vercel.app/class/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

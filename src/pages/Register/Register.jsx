@@ -29,7 +29,7 @@ const Register = () => {
       console.log(loggedUser)
       updateUser(data.name, data.photo)
         .then(() => {
-          fetch(`https://summer-camp-server-ismailjihad29.vercel.app/users`, {
+          fetch(`https://summer-camp-server-woad-six.vercel.app/users`, {
             method: "POST",
             headers: {
               "content-Type": "application/json",

@@ -25,7 +25,7 @@ const AddClass = () => {
      class_image, class_name, instructor, email, price, available_seat, enrolled_student, status, feedback
     };
 
-    fetch("https://summer-camp-server-ismailjihad29.vercel.app/class", {
+    fetch("https://summer-camp-server-woad-six.vercel.app/class", {
       method: "POST",
       headers: {
         "content-type": "application/json",
