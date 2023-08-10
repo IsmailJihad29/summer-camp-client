@@ -19,12 +19,10 @@ const Login = () => {
 
   const [show, setShow] = useState(false);
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    logIn(email, password)
+  const handleLogin = (data) => {
+    // event.preventDefault();
+    
+    logIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
