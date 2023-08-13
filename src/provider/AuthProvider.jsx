@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
 
       if (curentUser) {
         axios
-          .post("https://summer-camp-server-woad-six.vercel.app/jwt", {
+          .post("https://summer-camp-server-red-three.vercel.app/jwt", {
             email: curentUser.email,
           })
           .then((data) => {

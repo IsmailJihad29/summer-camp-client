@@ -16,7 +16,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
 
-                fetch(`https://summer-camp-server-woad-six.vercel.app/users`, {
+                fetch(`https://summer-camp-server-red-three.vercel.app/users`, {
             method: "POST",
             headers: {
               "content-Type": "application/json",
@@ -24,6 +24,7 @@ const SocialLogin = () => {
             body: JSON.stringify({
               name: loggedInUser.displayName,
               email: loggedInUser.email,
+              status: "student"
             }),
           })
             .then(res => res.json())

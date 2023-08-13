@@ -1,4 +1,4 @@
-import React from 'react';
+
 import useEnrolled from '../../../hooks/useEnrolled';
 import SectionTittle from '../../Shared/SectionTittle/SectionTittle';
 
