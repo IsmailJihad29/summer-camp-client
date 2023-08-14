@@ -1,7 +1,7 @@
 # Rhythm Studio Web Application
 
 
-## <a href="https://64d4d1c7fa92335e1433b1d0--tangerine-cat-3939c1.netlify.app/" target="_blank"> Live Link </a> 
+## <a href="https://64d932f3faf31947655eeccd--cute-profiterole-6adad9.netlify.app" target="_blank"> Live Link </a> 
 #### admin login for - <br>
 
 mail - admin@gmail.com <br>
